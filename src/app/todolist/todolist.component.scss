@@ -1,0 +1,182 @@
+@import '../../sass/variables';
+
+header{
+    width: 100%;
+    height: 80px;
+    margin: 20px 0 0 20px;
+    position: relative;
+    padding: 15px;
+    z-index: 5;
+    background: #25b99a;
+    color: #ffffff;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+    display: inline-block;
+    input{
+        width:100%;
+        height: 50px;
+        float: left;
+        border: none;
+        text-indent: 18px;  
+        background: rgba(255,255,255,0.2);
+        color:$white;
+        font-size: 15px;
+        font-weight: 400;
+        border-radius: 5px;
+        box-shadow: none;
+        outline:none;
+        padding:0 60px 0 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        border-top-left-radius:5px;
+        border-bottom-left-radius:5px;
+        border-top-right-radius:25px;
+        border-bottom-right-radius:25px;
+        &::-webkit-input-placeholder{
+            color:rgba(255,255,255,0.75);
+        }
+        &::-moz-input-placeholder{
+            color:rgba(255,255,255,0.75);
+        }
+        &::-webkit-input-placeholder{
+            color:rgba(255,255,255,0.75);
+        }
+        &::-ms-input-placeholder{
+            color:rgba(255,255,255,0.75);
+        }
+    }  
+    button{
+        background: #fff;
+        border: none;
+        border-radius: 25px;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 15px;
+        top:15px;
+        z-index:2;
+        font-size:28px;
+        font-weight: 400;
+        cursor: pointer;
+        outline:none;
+        color:$todo-header;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        border:0;
+    }
+
+}
+
+
+.todo{
+    width: 100%;
+    float: left;
+    li{
+        width: 100%;
+        height: 50px;
+        position: relative;
+        float: left;
+        list-style-type: none;
+        background: #ffffff;
+        padding: 10px;
+        border-radius: 5px;
+        margin:10px 0 5px 0;
+        box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.1);
+        padding: 15px 100px 15px 15px;
+        line-height:24px;
+        font-size: 14px;
+        font-weight: 500;
+        color:#444;
+        .buttons{
+            width:100px;
+            height:50px;
+            position: absolute;
+            top:0;
+            right:0;
+            button{
+                width:50px;
+                height:50px;
+                float:left;
+                background:none;
+                border:0;
+                box-shadow: none;
+                outline:none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+                position: relative;
+                &:last-of-type:before{
+                    content:'';
+                    width:1px;
+                    height:30px;
+                    position: absolute;
+                    top:10px;
+                    left:0;
+                    background:#efefef;
+                }
+                i{
+                    font-size:18px;
+                    line-height: 30px;
+                    color:$icon-color;
+                }
+                &.remove{
+                    i{
+                        &:hover{
+                            color:$icon-fill-color;
+                        }
+                    }
+                }
+                &.complete{
+                    i{
+                        &:hover{
+                            color:$todo-header;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &#completed{
+        position: relative;
+        &:not(:empty)::before{
+            content: '';
+            width:150px;
+            height:1px;
+            background:#d8e5e0;
+            position: absolute;
+            left:50%;
+            margin:0 0 0 -75px;
+        }
+        li{
+            .buttons{
+                button{
+                        &.complete{
+                           i{
+                                color:darken($todo-header,10%);
+                                // cursor:not-allowed;
+                                &:hover{
+                                    color:lighten($todo-header,20%);
+                                }
+                            }
+                        }
+                        &.remove{
+                            i{
+                                color:darken($icon-fill-color,10%);
+                                &:hover{
+                                    color:lighten($icon-fill-color,20%)
+                                }
+                             }
+                         }
+                    
+                    
+                }
+            }
+        }
+    }
+}

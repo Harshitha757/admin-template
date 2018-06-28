@@ -1,0 +1,15 @@
+@import '/variables';
+/* You can add global styles to this file, and also import other style files */
+body{
+    background:#edf0f1 !important;
+}
+
+html,head,body{
+    font-family: 'Roboto', sans-serif !important;
+}
+.navigate-container{
+    width:230px;
+    background-color: #304357;
+    height:100vh;
+    color:#fff;
+}

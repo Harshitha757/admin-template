@@ -1,0 +1,28 @@
+<div class="col-md-4 p-0">
+    <header>
+      <input #text type="text" placeholder="Enter an activity..." id="item" [(ngModel)]="itemText" autofocus>
+      <button id="add" (click)="onAddItem()">+</button>
+    </header>
+
+    <ul class="todo " id="todo">
+      <li *ngFor = "let itemdisplayed of itemList.slice().reverse(); let i = index">
+        {{ itemdisplayed.name }}
+        <div class="buttons">
+          <button class="remove" (click)="removeItem(i)"><i class="far fa-trash-alt"></i></button>
+          <button class="complete" (click)="completedItem(itemdisplayed,i)"><i class="far fa-check-circle"></i></button>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="todo" id="completed">
+        <li *ngFor = "let listCompleted of completedList.slice().reverse();  let i = index">
+            {{ listCompleted.name }}
+            <div class="buttons">
+                <button class="remove" (click)="removeSelectedItem(i)"><i class="far fa-trash-alt"></i></button>
+                <button class="complete" (click)="addItemBack(listCompleted,i)"><i class="far fa-check-circle"></i></button>
+              </div>
+        </li>
+       
+    </ul>
+
+</div>
